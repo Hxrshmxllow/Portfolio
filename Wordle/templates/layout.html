@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Wordle Game</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </head>
+    
+    <body onkeydown="keyboard()">
+        <h1>Wordle Game</h1>
+        
+        <div class="wordle-output">
+            <div class="wordle-output-cell" >{{R1C1}}</div>
+            <div class="wordle-output-cell" >{{R1C1}}</div>
+            <div class="wordle-output-cell" >{{R1C3}}</div>
+            <div class="wordle-output-cell" >{{R1C4}}</div>
+            <div class="wordle-output-cell" >{{R1C5}}</div>
+            <div class="wordle-output-cell" >{{R2C1}}</div>
+            <div class="wordle-output-cell" >{{R2C2}}</div>
+            <div class="wordle-output-cell" >{{R2C3}}</div>
+            <div class="wordle-output-cell" >{{R2C4}}</div>
+            <div class="wordle-output-cell" >{{R2C5}}</div>
+            <div class="wordle-output-cell" >{{R3C1}}</div>
+            <div class="wordle-output-cell" >{{R3C2}}</div>
+            <div class="wordle-output-cell" >{{R3C3}}</div>
+            <div class="wordle-output-cell" >{{R3C4}}</div>
+            <div class="wordle-output-cell" >{{R3C5}}</div>
+            <div class="wordle-output-cell" >{{R4C1}}</div>
+            <div class="wordle-output-cell" >{{R4C2}}</div>
+            <div class="wordle-output-cell" >{{R4C3}}</div>
+            <div class="wordle-output-cell" >{{R4C4}}</div>
+            <div class="wordle-output-cell" >{{R4C5}}</div>
+            <div class="wordle-output-cell" >{{R5C1}}</div>
+            <div class="wordle-output-cell" >{{R5C2}}</div>
+            <div class="wordle-output-cell" >{{R5C3}}</div>
+            <div class="wordle-output-cell" >{{R5C4}}</div>
+            <div class="wordle-output-cell" >{{R5C5}}</div>
+            <div class="wordle-output-cell" >{{R6C1}}</div>
+            <div class="wordle-output-cell" >{{R6C2}}</div>
+            <div class="wordle-output-cell" >{{R6C3}}</div>
+            <div class="wordle-output-cell" >{{R6C4}}</div>
+            <div class="wordle-output-cell" >{{R6C5}}</div>
+        </div>
+
+        <div class="wordle-keypad">
+            <button class="wordle-cell" onclick="addLetter('A')">A</button>
+            <button class="wordle-cell" onclick="addLetter('B')">B</button>
+            <button class="wordle-cell" onclick="addLetter('C')">C</button>
+            <button class="wordle-cell" onclick="addLetter('D')">D</button>
+            <button class="wordle-cell" onclick="addLetter('E')">E</button>
+            <button class="wordle-cell" onclick="addLetter('F')">F</button>
+            <button class="wordle-cell" onclick="addLetter('G')">G</button>
+            <button class="wordle-cell" onclick="addLetter('H')">H</button>
+            <button class="wordle-cell" onclick="addLetter('I')">I</button>
+            <button class="wordle-cell" onclick="addLetter('J')">J</button>
+            <button class="wordle-cell" onclick="addLetter('K')">K</button>
+            <button class="wordle-cell" onclick="addLetter('L')">L</button>
+            <button class="wordle-cell" onclick="addLetter('M')">M</button>
+            <button class="wordle-cell" onclick="addLetter('N')">N</button>
+            <button class="wordle-cell" onclick="addLetter('O')">O</button>
+            <button class="wordle-cell" onclick="addLetter('P')">P</button>
+            <button class="wordle-cell" onclick="addLetter('Q')">Q</button>
+            <button class="wordle-cell" onclick="addLetter('R')">R</button>
+            <button class="wordle-cell" onclick="addLetter('S')">S</button>
+            <button class="wordle-cell" onclick="addLetter('T')">T</button>
+            <button class="wordle-cell" onclick="addLetter('U')">U</button>
+            <button class="wordle-cell" onclick="addLetter('V')">V</button>
+            <button class="wordle-cell" onclick="addLetter('W')">W</button>
+            <button class="wordle-cell" onclick="addLetter('X')">X</button>
+            <button class="wordle-cell" onclick="addLetter('Y')">Y</button>
+            <button class="wordle-cell" onclick="addLetter('Z')">Z</button>
+            <button class="wordle-cell" onclick="" id="backspace">Backspace</button>
+            <button class="wordle-cell" onclick="" id="enter">Enter</button>
+        </div>
+
+    </body>
+
+</html>
