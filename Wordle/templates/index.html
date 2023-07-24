@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Wordle Game</title>
-</head>
-<body>
-  <h1>Wordle Game</h1>
-  
-  <div class="wordle-container">
-    <input type="text" class="wordle-input" id="guess-input" placeholder="Enter your guess">
-    <button class="wordle-button" onclick="checkGuess()">Check</button>
-    <p class="wordle-result" id="result-text"></p>
-  </div>
-  
-  <div class="wordle-keypad">
-    <div class="wordle-cell" onclick="addLetter('A')">A</div>
-    <div class="wordle-cell" onclick="addLetter('B')">B</div>
-    <div class="wordle-cell" onclick="addLetter('C')">C</div>
-    <div class="wordle-cell" onclick="addLetter('D')">D</div>
-    <div class="wordle-cell" onclick="addLetter('E')">E</div>
-    <div class="wordle-cell" onclick="addLetter('F')">F</div>
-    <div class="wordle-cell" onclick="addLetter('G')">G</div>
-    <div class="wordle-cell" onclick="addLetter('H')">H</div>
-    <div class="wordle-cell" onclick="addLetter('I')">I</div>
-    <div class="wordle-cell" onclick="addLetter('J')">J</div>
-    <div class="wordle-cell" onclick="addLetter('K')">K</div>
-    <div class="wordle-cell" onclick="addLetter('L')">L</div>
-    <div class="wordle-cell" onclick="addLetter('M')">M</div>
-    <div class="wordle-cell" onclick="addLetter('N')">N</div>
-    <div class="wordle-cell" onclick="addLetter('O')">
+
+    <head>
+        <title>Wordle Game</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </head>
+    
+    <body onkeydown="keyboard()">
+        <h1>Wordle Game</h1>
+        
+        <div class="wordle-output">
+            {% for i in cells %}
+                {% for j in i %}
+                    <div class="wordle-output-cell">{{j}}</div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="wordle-keypad">
+            {% for letter in letters %}
+                <button class="wordle-cell" onclick="addLetter('{{letter}}')">{{letter}}</button>
+            {% endfor %}
+            <button class="wordle-cell" onclick="" id="backspace">Backspace</button>
+            <button class="wordle-cell" onclick="" id="enter">Enter</button>
+        </div>
+
+    </body>
+
+</html>
