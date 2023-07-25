@@ -1,7 +1,7 @@
 import pandas as pd
 
 def main():
-    rows = getRows('GPA_Calculator/Grades.xlsx', 'Junior Year')
+    rows = getRows('GPA_Calculator/Krissh-Gradebook.xlsx', 'Junior Year')
     points = 0.00
     totalcredits = 0
     for row in rows:
@@ -11,7 +11,7 @@ def main():
         grade = row[3]
         points += (gradepoints(grade) + difficultypoints(difficulty))*credits
     juniorgpa = points/totalcredits
-    rows = getRows('GPA_Calculator/Grades.xlsx', 'Sophomore Year')
+    rows = getRows('GPA_Calculator/Krissh-Gradebook.xlsx', 'Sophomore Year')
     points = 0.00
     totalcredits = 0
     for row in rows:
@@ -19,10 +19,9 @@ def main():
         credits = row[2]
         totalcredits += credits
         grade = row[3]
-        points += (  points(grade) + difficultypoints(difficulty))*credits
-        print(row[1] + ": " + str(gradepoints(grade) + difficultypoints(difficulty)))
+        points += (gradepoints(grade) + difficultypoints(difficulty))*credits
     sophomoregpa = points/totalcredits
-    rows = getRows('GPA_Calculator/Grades.xlsx', 'Freshmen Year')
+    rows = getRows('GPA_Calculator/Krissh-Gradebook.xlsx', 'Freshmen Year')
     points = 0.00
     totalcredits = 0
     for row in rows:
@@ -32,11 +31,13 @@ def main():
         grade = row[3]
         points += (inflatedpoints(grade) + difficultypoints(difficulty))*credits
     freshmengpa = points/totalcredits
-    finalgpa = (sophomoregpa + freshmengpa)/2.0
-    print(juniorgpa)
-    print(sophomoregpa)
-    print(freshmengpa)
-    print(finalgpa)
+    print("Freshmen Gpa: " + str(freshmengpa))
+    print("Sophomore Gpa: " + str(sophomoregpa))
+    print("Junior Gpa: " + str(juniorgpa))
+    finalgpa = (juniorgpa + sophomoregpa + freshmengpa)/3.0
+    print("Final Gpa: " + str(finalgpa))
+
+
 
 def getRows(excel_file, sheet_name, start_row = 1):
     excel_data = pd.read_excel(excel_file, sheet_name, header=None)
@@ -52,27 +53,27 @@ def getRows(excel_file, sheet_name, start_row = 1):
 def inflatedpoints(grade):
     point = 0.00
     if(grade == "A+"):
-        point = (4.67)
+        point = (4.6)
     elif(grade == "A"):
-        point = (4.33)
+        point = (4.3)
     elif(grade == "A-"):
         point = (4.0)
     elif(grade == "B+"):
-        point = (3.67)
+        point = (3.6)
     elif(grade == "B"):
-        point = (3.33)
+        point = (3.3)
     elif(grade == "B-"):
         point = (3.00)
     elif(grade == "C+"):
-        point = (2.67)
+        point = (2.6)
     elif(grade == "C"):
-        point = (2.33)
+        point = (2.3)
     elif(grade == "C-"):
         point = (2.00)
-    elif(grade == "D+"):
-        point = (1.67)
     elif(grade == "D"):
-        point = (1.33)
+        point = (1.6)
+    elif(grade == "D-"):
+        point = (1.3)
     else:
         point = (0)
     return point
@@ -97,9 +98,9 @@ def gradepoints(grade):
         point = (2.0)
     elif(grade == "C-"):
         point = (1.67)
-    elif(grade == "D+"):
-        point = (1.33)
     elif(grade == "D"):
+        point = (1.33)
+    elif(grade == "D-"):
         point = (1.0)
     else:
         point = (0)
@@ -108,9 +109,9 @@ def gradepoints(grade):
 def difficultypoints(difficulty):
     point = 0.00
     if(difficulty == "AP"):
-        point = 2
+        point = 2.0
     elif(difficulty == "Honors"):
-        point = 1
+        point = 1.0
     else:
         point = 0
     return point
