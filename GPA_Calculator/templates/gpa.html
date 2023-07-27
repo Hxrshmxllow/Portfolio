@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title> GPA </title>
-    <link rel="stylesheet" href="/static/css/gpastyle.css">
+    <link rel="stylesheet" href="static/css/gpastyle.css">
     <script src="gpascript.js"></script>
 </head>
 
@@ -60,21 +60,15 @@
                         Add
                       </button>
                 </div>
-                <tr>
-                    <div class="box">
-                        <button type="submit" onclick="undo()" class="undo">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            Undo
-                          </button>
-                    </div>
-                </tr>
             </tr>
-            <div class = "box1"> 
-                <h1 id="finalGPA">{{finalGPA}}</h1>
-              </div>
+            <tr>
+                <div>
+                    <button>4.0</button>
+                </div>
+                <div class = "box1"> 
+                    <h1 id="finalGPA">{{finalGPA}}</h1>
+                </div>
+            </tr>
         </table>
     </div>
 </body>
