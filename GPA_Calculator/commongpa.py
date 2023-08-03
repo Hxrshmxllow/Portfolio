@@ -86,9 +86,9 @@ def gradepoints(grade):
 def difficultypoints(difficulty):
     point = 0.00
     if(difficulty == "AP"):
-        point = 0.0
+        point = 1.0
     elif(difficulty == "Honors"):
-        point = 0.0
+        point = 0.5
     else:
         point = 0
     return point
