@@ -12,21 +12,28 @@
         <script src="/static/js/nav.js"></script>
 
         <section class="product-details">
-            <div class="image-slider">
+            <div class="image-slider" style="background-image: url('/static/img/{{product.ImageFile}}/1.png');">
                 <div class="product-images">
-                    <img src="/static/img/product image 1.png" class="active" alt="">
-                    <img src="/static/img/product image 2.png" alt="">
-                    <img src="/static/img/product image 3.png" alt="">
-                    <img src="/static/img/product image 4.png" alt="">
+                    <img src="/static/img/{{product.ImageFile}}/1.png" class="active" alt="">
+                    <img src="/static/img/{{product.ImageFile}}/2.png" alt="">
+                    <img src="/static/img/{{product.ImageFile}}/3.png" alt="">
+                    <img src="/static/img/{{product.ImageFile}}/4.png" alt="">
                 </div>
             </div>
 
             <div class="details">
-                <h2 class="product-brand">calvin klein</h2>
-                <p class="product-short-des">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                <span class="product-price">$99</span>
-                <span class="product-actual-price">$200</span>
+                <h2 class="product-brand">{{product.Brand}}</h2>
+                <p class="product-short-des">{{product.Name}}</p>
+                <span class="product-price">${{product.Price}}</span>
+                <span class="product-actual-price">${{product.Price}}</span>
                 <span class="product-discount">( 50% off )</span>
+
+                <p class="product-sub-heading">select color</p>
+        
+                <input type="radio" name="black beauty" value="black beauty" checked hidden id="black beauty">
+                <label for="black beauty" class="black check"></label>
+                <input type="radio" name="brilliant white" value="brilliant white" hidden id="brilliant white">
+                <label for="brilliant white" class="white"></label>
         
                 <p class="product-sub-heading">select size</p>
         
@@ -47,8 +54,8 @@
         </section>
         <script src="/static/js/product.js"></script>
         <section class="detail-des">
-            <h2 class="heading">description</h2>
-            <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, ......</p>
+            <h2 class="heading">About the Product</h2>
+            <p class="des">{{product.Description}}</p>
         </section>
 
 
