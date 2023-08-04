@@ -14,6 +14,7 @@ class Product():          # leave this empty
         self.Sizes = sizes  # variable using self
         self.StockQty = qty  # variable using self
 
+cart=[]
 
 
 @app.route("/")
@@ -40,7 +41,7 @@ def product(Id):
     return render_template('product.html', product=product)
 
 @app.route("/cart", methods = ['GET', 'POST'])
-def cart():
+def checkout():
     return render_template('cart.html')
 
 if __name__ == "__main__":

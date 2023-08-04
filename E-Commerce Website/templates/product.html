@@ -30,25 +30,27 @@
 
                 <p class="product-sub-heading">select color</p>
         
-                <input type="radio" name="black beauty" value="black beauty" checked hidden id="black beauty">
+                <input type="radio" name="black beauty" value="black beauty" checked id="black beauty">
                 <label for="black beauty" class="black check"></label>
-                <input type="radio" name="brilliant white" value="brilliant white" hidden id="brilliant white">
+                <input type="radio" name="brilliant white" value="brilliant white" id="brilliant white">
                 <label for="brilliant white" class="white"></label>
         
                 <p class="product-sub-heading">select size</p>
         
-                <input type="radio" name="size" value="s" checked hidden id="s-size">
-                <label for="s-size" class="size-radio-btn check">s</label>
-                <input type="radio" name="size" value="m" hidden id="m-size">
-                <label for="m-size" class="size-radio-btn">m</label>
-                <input type="radio" name="size" value="l" hidden id="l-size">
-                <label for="l-size" class="size-radio-btn">l</label>
-                <input type="radio" name="size" value="xl" hidden id="xl-size">
-                <label for="xl-size" class="size-radio-btn">xl</label>
-                <input type="radio" name="size" value="xxl" hidden id="xxl-size">
-                <label for="xxl-size" class="size-radio-btn">xxl</label>
+                <form id="size">
+                    <input type="radio" name="size" value="s" checked id="s">
+                    <label for="s-size" class="size-radio-btn check">s</label>
+                    <input type="radio" name="size" value="m" id="m">
+                    <label for="m-size" class="size-radio-btn">m</label>
+                    <input type="radio" name="size" value="l" id="l">
+                    <label for="l-size" class="size-radio-btn">l</label>
+                    <input type="radio" name="size" value="xl" id="xl">
+                    <label for="xl-size" class="size-radio-btn">xl</label>
+                    <input type="radio" name="size" value="xxl" id="xxl">
+                    <label for="xxl-size" class="size-radio-btn">xxl</label>
+                </form>
         
-                <button class="btn cart-btn">add to cart</button>
+                <button class="btn cart-btn" onclick="addToCart()">add to cart</button>
                 <button class="btn">add to wishlist</button>
             </div>
         </section>
