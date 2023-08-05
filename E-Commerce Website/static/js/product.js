@@ -23,18 +23,51 @@ sizeBtns.forEach((item, i) => { // looping through each button
     })
 })
 
+const colorBtns = document.querySelectorAll('.color-radio-btn'); // selecting size buttons
+checkedBtn = 0; // current selected button
+
+colorBtns.forEach((item, i) => { // looping through each button
+    item.addEventListener('click', () => { // adding click event to each 
+        colorBtns[checkedBtn].classList.remove('check'); // removing check class from the current button
+        item.classList.add('check'); // adding check class to clicked button
+        checkedBtn = i; // upading the variable
+    })
+})
+
+
 function addToCart(){
     var color = $("form[id='color']").find(":radio:checked").val();
     var size = $("form[id='size']").find(":radio:checked").val();
-    alert("color: " + color + "size: " + size)
+    var id = document.getElementById('Id').innerHTML;
+    var brand = document.getElementById('brand').innerHTML;
+    var des = document.getElementById('des').innerHTML;
+    var price = document.getElementById('price').innerHTML;
+    var name = document.getElementById('name').innerHTML;
+    data = {
+        'color': color,
+        'size': size,
+        'id': id,
+        'brand': brand,
+        'des': des,
+        'price': price,
+        'name': name
+    }
+    $.ajax({
+        url:'/product/' + id,
+        type: 'POST',
+        data: data,
+        success: function(){
+            alert("Added to Cart");
+        }
+      });
 }
 
-const colorBtns = document.querySelectorAll('.colorbutton');
-colorBtns.forEach((item, i) => { // looping through each button
-    item.addEventListener('click', () => { // adding click event to each 
-        var color = $("form[id='color']").find(":radio:checked").val();
-        var id = document.getElementById('id').innerHTML;
-        window.location.href = '/product/' + id + "/" + color;
-        return false;
-    })
-})
+function redirect(){
+    var color = $("form[id='color']").find(":radio:checked").val();
+    var id = document.getElementById('Id').innerHTML;
+    document.getElementById("image-slider").style.backgroundImage = "url('/static/img/" + id + "/" + color + "/1.png')";
+    document.getElementById('image1').src = "/static/img/" + id + "/" + color + "/1.png";
+    document.getElementById('image2').src = "/static/img/" + id + "/" + color + "/2.png";
+    document.getElementById('image3').src = "/static/img/" + id + "/" + color + "/3.png";
+    document.getElementById('image4').src = "/static/img/" + id + "/" + color + "/4.png";
+}

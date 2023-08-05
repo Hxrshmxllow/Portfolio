@@ -12,7 +12,7 @@
         <script src="/static/js/nav.js"></script>
 
         <section class="product-details">
-            <div class="image-slider" style="background-image: url('/static/img/{{product.ImageFile}}/1.png');">
+            <div class="image-slider" id="image-slider" style="background-image: url('/static/img/{{product.ImageFile}}/1.png');">
                 <div class="product-images">
                     <img src="/static/img/{{product.ImageFile}}/1.png" class="active" alt="" id="image1">
                     <img src="/static/img/{{product.ImageFile}}/2.png" alt="" id="image2">
@@ -22,33 +22,33 @@
             </div>
 
             <div class="details">
-                <h2 class="product-brand">{{product.Brand}}</h2>
-                <p class="product-short-des">{{product.Name}}</p>
-                <span class="product-price">${{product.Price}}</span>
+                <h2 class="product-brand" id="brand">{{product.Brand}}</h2>
+                <p class="product-short-des" id="name">{{product.Name}}</p>
+                <span class="product-price" id="price">${{product.Price}}</span>
                 <span class="product-actual-price">${{product.Price}}</span>
                 <span class="product-discount">( 50% off )</span>
 
                 <p class="product-sub-heading">select color</p>
         
-                <form id="color" name="'color">
-                    <input type="radio" name="color-radio" value="{{product.Colors[0]}}" checked id="black beauty" class="colorbutton">
-                    <label for="black beauty" class="color-radio-btn black check"></label>
-                    <input type="radio" name="color-radio" value="{{product.Colors[1]}}" id="brilliant white" class="colorbutton">
-                    <label for="brilliant white" class="color-radio-btn white"></label>
+                <form id="color" name="color">
+                    <input type="radio" name="color-radio" value="{{product.Colors[0]}}" id="{{product.Colors[0]}}" checked class="colorbutton" onclick="redirect()" >
+                    <label for="{{product.Colors[0]}}" class="color-radio-btn" id="black" style="background-image: url('/static/img/{{product.Id}}/{{product.Colors[0]}}/Color.png')"></label>
+                    <input type="radio" name="color-radio" value="{{product.Colors[1]}}" id="{{product.Colors[1]}}" class="colorbutton" onclick="redirect()" >
+                    <label for="{{product.Colors[1]}}" class="color-radio-btn" id="white" style="background-image: url('/static/img/{{product.Id}}/{{product.Colors[1]}}/Color.png')"></label>
                 </form>
         
                 <p class="product-sub-heading">select size</p>
         
                 <form id="size" name="size">
-                    <input type="radio" name="size" value="s" checked id="s-size">
+                    <input type="radio" name="size" value="s" checked id="s-size" class="sizebutton">
                     <label for="s-size" class="size-radio-btn check">s</label>
-                    <input type="radio" name="size" value="m" id="m-size">
+                    <input type="radio" name="size" value="m" id="m-size" class="sizebutton">
                     <label for="m-size" class="size-radio-btn">m</label>
-                    <input type="radio" name="size" value="l" id="l-size">
+                    <input type="radio" name="size" value="l" id="l-size" class="sizebutton"> 
                     <label for="l-size" class="size-radio-btn">l</label>
-                    <input type="radio" name="size" value="xl" id="xl-size">
+                    <input type="radio" name="size" value="xl" id="xl-size" class="sizebutton">
                     <label for="xl-size" class="size-radio-btn">xl</label>
-                    <input type="radio" name="size" value="xxl" id="xxl-size">
+                    <input type="radio" name="size" value="xxl" id="xxl-size" class="sizebutton">
                     <label for="xxl-size" class="size-radio-btn">xxl</label>
                 </form>
         
@@ -60,7 +60,7 @@
         <section class="detail-des">
             <h2 class="heading">About the Product</h2>
             <p class="des" id="Id">{{product.Id}}</p>
-            <p class="des">{{product.Description}}</p>
+            <p class="des" id="des">{{product.Description}}</p>
         </section>
 
 

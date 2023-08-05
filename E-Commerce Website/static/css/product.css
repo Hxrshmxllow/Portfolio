@@ -135,7 +135,7 @@
     line-height: 25px;
 }
 
-.black{
+#black{
     display: inline-block;
     width: 80px;
     height: 80px;
@@ -147,11 +147,10 @@
     margin-left: 0;
     line-height: 80px;
     text-transform: uppercase;
-    background: black;
     cursor: pointer;
 }
 
-.white{
+#white{
     display: inline-block;
     width: 80px;
     height: 80px;
@@ -163,17 +162,15 @@
     margin-left: 0;
     line-height: 80px;
     text-transform: uppercase;
-    background: white;
     cursor: pointer;
 }
 
-.black.check{
-    border: 1px solid black;
-}
-input{
+.colorbutton{
     display: none;
 }
-
+.sizebutton{
+    display: none;
+}
 .colorbutton:checked + label{
     border: 3px dashed #a193d9;
 }

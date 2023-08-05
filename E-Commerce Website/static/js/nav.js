@@ -3,11 +3,13 @@ const createNav = () => {
 
     nav.innerHTML = `
         <div class="nav">
-            <img src="/static/img/dark-logo.png" class="brand-logo" alt="">
+            <a href="/">
+                <img src="/static/img/dark-logo.png" class="brand-logo" alt="">
+            </a>
             <div class="nav-items">
                 <div class="search">
                     <input type="text" class="search-box" placeholder="search brand, product">
-                    <a class="search-btn" href="/search">search</a>
+                    <button class="search-btn" onclick="redirect()">search</button>
                 </div>
                 <a href="#"><img src="/static/img/user.png" alt=""></a>
                 <a href="/cart"><img src="/static/img/cart.png" alt=""></a>
@@ -24,3 +26,7 @@ const createNav = () => {
 }
 
 createNav();
+
+function redirect(){
+    window.location.replace("/search");
+}
