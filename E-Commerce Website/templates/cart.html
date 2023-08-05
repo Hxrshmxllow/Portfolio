@@ -53,36 +53,38 @@
                         <tr id = "item">
                           <th scope="row">
                             <div class="d-flex align-items-center">
-                              <img src="/static/img/{{product.ImageFile}}/1.png" class="img-fluid rounded-3"
+                              <img src="/static/img/{{product[1].ImageFile}}/1.png" class="img-fluid rounded-3"
                                 style="width: 120px;" alt="Book">
                               <div class="flex-column ms-4">
-                                <p class="mb-2" id="brand" value='{{loop.index}}'>{{product.Brand}}</p>
-                                <p class="mb-2">{{product.Name}}</p>
-                                <p class="mb-0">Color: {{product.Color}}</p>
+                                <p class="mb-2">{{product[1].Brand}}</p>
+                                <p class="mb-2">{{product[1].Name}}</p>
+                                <p class="mb-0">Color: {{product[1].Color}}</p>
                               </div>
                             </div>
                           </th>
                           <td class="align-middle">
-                            <p class="mb-0" style="font-weight: 500;">{{product.Size}}</p>
+                            <p class="mb-0" style="font-weight: 500;">{{product[1].Size}}</p>
                           </td>
                           <td class="align-middle">
                             <div class="d-flex flex-row">
                               <button class="btn btn-link px-2"
-                                onclick="lowerQuantity()">
+                                value="{{product[0]}}"
+                                onclick="lowerQuantity(value)">
                                 <i class="fas fa-minus"></i>
                               </button>
           
-                              <input id="form1" min="0" name="quantity" value="{{product.Qty}}" type="number"
+                              <input id="form{{product[0]}}" min="0" name="quantity" value="{{product[1].Qty}}" type="number"
                                 class="form-control form-control-sm" style="width: 50px;"/>
           
                               <button class="btn btn-link px-2"
-                                onclick="addQuantity()">
+                                value="{{product[0]}}"
+                                onclick="addQuantity(value)">
                                 <i class="fas fa-plus"></i>
                               </button>
                             </div>
                           </td>
                           <td class="align-middle">
-                            <p class="mb-0" style="font-weight: 500;">${{product.Price}}</p>
+                            <p class="mb-0" style="font-weight: 500;">${{product[2]}}</p>
                           </td>
                         </tr>
                         {% endfor %} 
@@ -169,14 +171,14 @@
           
                           <div class="d-flex justify-content-between" style="font-weight: 500;">
                             <p class="mb-0">Shipping</p>
-                            <p class="mb-0">${{shipping}}0</p>
+                            <p class="mb-0">${{shipping}}</p>
                           </div>
           
                           <hr class="my-4">
           
                           <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
                             <p class="mb-2">Total (tax included)</p>
-                            <p class="mb-2">${{total}}0</p>
+                            <p class="mb-2">${{total}}</p>
                           </div>
           
                           <button type="button" class="btn btn-primary btn-block btn-lg">
@@ -201,5 +203,6 @@
         <script src="/static/js/footer.js"></script>
         <script src="/static/js/cart.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </body>
 </html>

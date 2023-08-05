@@ -5,7 +5,7 @@ def getItems(excel_file, sheet_name, start_row = 1):
     size = excel_data.shape
     row_num = size[0]
     datax = []
-    for i in range(start_row, 4):
+    for i in range(start_row, 7):
         data = excel_data.iloc[i].values.tolist()
         datax.append(data)
     return datax

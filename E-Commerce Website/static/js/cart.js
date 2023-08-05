@@ -1,12 +1,9 @@
-function lowerQuantity(){
-    var quantity = parseInt(document.getElementById('form1').value) - 1;
-    var item = document.getElementById('brand').value;
-    alert(item);
+function lowerQuantity(value){
+    var quantity = parseInt(document.getElementById('form' + value).value) - 1;
+    document.getElementById('form' + value).value = quantity;
     if(quantity == 0){
-        var item = parseInt(document.getElementById('item').value);
-        alert(item)
         data = {
-            'item': item
+            'item': value
         }
         $.ajax({
             url:'/cart',
@@ -17,10 +14,35 @@ function lowerQuantity(){
             }
           });
     }
-    document.getElementById('form1').value = quantity;
+    else{
+        data = {
+            'item': value,
+            'quantity': quantity
+        }
+        $.ajax({
+            url:'/cart',
+            type: 'POST',
+            data: data,
+            success: function(){
+                alert("Updated");
+            }
+          })
+    }
 }
 
-function addQuantity(){
-    var quantity = parseInt(document.getElementById('form1').value) + 1;
-    document.getElementById('form1').value = quantity;
+function addQuantity(value){
+    var quantity = parseInt(document.getElementById('form'+value).value) + 1;
+    document.getElementById('form'+value).value = quantity;
+    data = {
+        'item': value,
+        'quantity': quantity
+    }
+    $.ajax({
+        url:'/cart',
+        type: 'POST',
+        data: data,
+        success: function(){
+            alert("Updated");
+        }
+      });
 }

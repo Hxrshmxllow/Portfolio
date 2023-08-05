@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+    </head>
+
+    <body>
+        <nav class="navbar"></nav>
+        <script src="/static/js/nav.js"></script>
+
+        <div class="product-container">
+            {% for product in products %}                         
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="discount-tag">50% off</span>
+                        <a href="/product/{{product.Id}}">
+                            <img src="/static/img/{{product.ImageFile}}" class="product-thumb" alt="">
+                            <button class="card-btn">add to wishlist</button>
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">{{product.Brand}}</h2>
+                        <p class="product-short-des">{{product.Name}}</p>
+                        <span class="price">$20</span><span class="actual-price">${{product.Price}}</span>
+                    </div>
+                </div>
+            {% endfor %} 
+        </div>
+        
+        <footer></footer>
+        <script src="/static/js/footer.js"></script>
+    </body>
+</html>
