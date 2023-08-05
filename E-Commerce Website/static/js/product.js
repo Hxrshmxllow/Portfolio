@@ -23,6 +23,18 @@ sizeBtns.forEach((item, i) => { // looping through each button
     })
 })
 
-function addToCart(Id){
-    size = document.getElementById("")
+function addToCart(){
+    var color = $("form[id='color']").find(":radio:checked").val();
+    var size = $("form[id='size']").find(":radio:checked").val();
+    alert("color: " + color + "size: " + size)
 }
+
+const colorBtns = document.querySelectorAll('.colorbutton');
+colorBtns.forEach((item, i) => { // looping through each button
+    item.addEventListener('click', () => { // adding click event to each 
+        var color = $("form[id='color']").find(":radio:checked").val();
+        var id = document.getElementById('id').innerHTML;
+        window.location.href = '/product/' + id + "/" + color;
+        return false;
+    })
+})

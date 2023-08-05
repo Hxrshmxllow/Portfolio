@@ -14,10 +14,10 @@
         <section class="product-details">
             <div class="image-slider" style="background-image: url('/static/img/{{product.ImageFile}}/1.png');">
                 <div class="product-images">
-                    <img src="/static/img/{{product.ImageFile}}/1.png" class="active" alt="">
-                    <img src="/static/img/{{product.ImageFile}}/2.png" alt="">
-                    <img src="/static/img/{{product.ImageFile}}/3.png" alt="">
-                    <img src="/static/img/{{product.ImageFile}}/4.png" alt="">
+                    <img src="/static/img/{{product.ImageFile}}/1.png" class="active" alt="" id="image1">
+                    <img src="/static/img/{{product.ImageFile}}/2.png" alt="" id="image2">
+                    <img src="/static/img/{{product.ImageFile}}/3.png" alt="" id="image3">
+                    <img src="/static/img/{{product.ImageFile}}/4.png" alt="" id="image4">
                 </div>
             </div>
 
@@ -30,23 +30,25 @@
 
                 <p class="product-sub-heading">select color</p>
         
-                <input type="radio" name="black beauty" value="black beauty" checked id="black beauty">
-                <label for="black beauty" class="black check"></label>
-                <input type="radio" name="brilliant white" value="brilliant white" id="brilliant white">
-                <label for="brilliant white" class="white"></label>
+                <form id="color" name="'color">
+                    <input type="radio" name="color-radio" value="{{product.Colors[0]}}" checked id="black beauty" class="colorbutton">
+                    <label for="black beauty" class="color-radio-btn black check"></label>
+                    <input type="radio" name="color-radio" value="{{product.Colors[1]}}" id="brilliant white" class="colorbutton">
+                    <label for="brilliant white" class="color-radio-btn white"></label>
+                </form>
         
                 <p class="product-sub-heading">select size</p>
         
-                <form id="size">
-                    <input type="radio" name="size" value="s" checked id="s">
+                <form id="size" name="size">
+                    <input type="radio" name="size" value="s" checked id="s-size">
                     <label for="s-size" class="size-radio-btn check">s</label>
-                    <input type="radio" name="size" value="m" id="m">
+                    <input type="radio" name="size" value="m" id="m-size">
                     <label for="m-size" class="size-radio-btn">m</label>
-                    <input type="radio" name="size" value="l" id="l">
+                    <input type="radio" name="size" value="l" id="l-size">
                     <label for="l-size" class="size-radio-btn">l</label>
-                    <input type="radio" name="size" value="xl" id="xl">
+                    <input type="radio" name="size" value="xl" id="xl-size">
                     <label for="xl-size" class="size-radio-btn">xl</label>
-                    <input type="radio" name="size" value="xxl" id="xxl">
+                    <input type="radio" name="size" value="xxl" id="xxl-size">
                     <label for="xxl-size" class="size-radio-btn">xxl</label>
                 </form>
         
@@ -57,12 +59,13 @@
         <script src="/static/js/product.js"></script>
         <section class="detail-des">
             <h2 class="heading">About the Product</h2>
+            <p class="des" id="Id">{{product.Id}}</p>
             <p class="des">{{product.Description}}</p>
         </section>
 
 
         <footer></footer>
         <script src="/static/js/footer.js"></script>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 import pandas as pd
 
 def main():
-    rows = getRows('GPA_Calculator/Grades.xlsx', 'Junior Year')
+    rows = getRows('GPA_Calculator/Soham-Gradebook.xlsx', 'Junior Year')
     points = 0.00
     totalcredits = 0
     for row in rows:
@@ -11,7 +11,7 @@ def main():
         grade = row[3]
         points += (gradepoints(grade) + difficultypoints(difficulty))*credits
     juniorgpa = points/totalcredits
-    rows = getRows('GPA_Calculator/Grades.xlsx', 'Sophomore Year')
+    rows = getRows('GPA_Calculator/Soham-Gradebook.xlsx', 'Sophomore Year')
     points = 0.00
     totalcredits = 0
     for row in rows:
@@ -21,7 +21,7 @@ def main():
         grade = row[3]
         points += (gradepoints(grade) + difficultypoints(difficulty))*credits
     sophomoregpa = points/totalcredits
-    rows = getRows('GPA_Calculator/Grades.xlsx', 'Freshmen Year')
+    rows = getRows('GPA_Calculator/Soham-Gradebook.xlsx', 'Freshmen Year')
     points = 0.00
     totalcredits = 0
     for row in rows:
